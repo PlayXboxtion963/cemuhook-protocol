@@ -97,16 +97,17 @@ If controller for some port is not connected, you can respond with 12 zero bytes
 
 | Offset | Length | Type | Meaning |
 | ------ | ------ | ---- | ------- |
-| 0 | 4 | **Signed 32-bit** | Amount of ports you should report about. Always less than 5. |
-| 4 | 1 to 4 | Unsigned 8-bit (array) | Each byte represent number of slot you should report about. Count of bytes here is determined by value above. Each value is less than 4. |
+| 0 | 4 | **Signed 32-bit** | Amount of slots you should report about. Always less than 5. |
+| 4 | 1 to 4 | Unsigned 8-bit (array) | Each byte represent index of slot you should report about. Count of bytes here is determined by value above. Each value is less than 4.|
 
+Example: 0x4 + 0x0,0x1,0x2,0x3 . You should reply with 4 packages. From slot 1 to 4
 For every requested controller slot you should send one packet structured like described below.
 
 ### Outgoing packet structure:
 
 | Offset | Length | Type | Meaning |
 | ------ | ------ | ---- | ------- |
-| 0  | 11  | Complex | Beginning described above |
+| 0  | 11  | Complex | Shared response beginning for message types below |
 | 11 | 1 | N/A | Zero byte (`\0`). |
 
 # Actual controllers data
