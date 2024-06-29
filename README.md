@@ -108,7 +108,7 @@ For every requested controller slot you should send one packet structured like d
 
 | Offset | Length | Type | Meaning |
 | ------ | ------ | ---- | ------- |
-| 0  | 11  | Complex | Shared response beginning for message types below |
+| 0  | 11  | Complex | Shared response beginning for message types above|
 | 11 | 1 | N/A | Zero byte (`\0`). |
 
 # Actual controllers data
